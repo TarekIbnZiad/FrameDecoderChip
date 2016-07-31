@@ -1,0 +1,105 @@
+entity src is
+port  (
+	ck          : in	bit;
+	vdd         : in	bit;
+	vss         : in	bit;
+	Word_in     : in	bit_vector (7 downto 0) ;
+	reset       : in	bit;
+	Address_out : out 	bit_vector (7 downto 0) ;
+	Data_out    : out 	bit_vector (7 downto 0) ;
+	error_out   : out	bit
+      );
+end src;
+
+architecture src of src is
+  type STATE_TYPE is (E0, E1, E2, E3, E4, E5, E6, E7, E8, E9);  
+  signal NS, CS : STATE_TYPE;
+
+--pragma CURRENT_STATE CS
+--pragma NEXT_STATE    NS
+--pragma CLOCK         CK
+
+begin
+-- Process (1): Transition and Generation functions
+  process (CS, Word_in, reset)
+  begin
+-- Next state Transition function = f(inputs) and output generation function =f(states)
+    if (reset='1') then
+      NS <= E0; --initial state
+    else
+      case CS is
+	when E0 => 
+		if (Word_in=x"7E") then NS <= E1;
+					error_out <= '0';
+		elsif (Word_in=x"00") then NS <= E0;
+					Address_out <= x"00" ;
+					Data_out <= x"00" ;
+					error_out <= '0';
+		else 			NS <= E9; 
+					error_out <= '1';
+		end if;
+	when E1 =>
+		if (Word_in=x"80") then NS <= E2;
+					error_out <= '0';
+		elsif (Word_in=x"81") then NS <= E5;
+					error_out <= '0';
+		else 			NS <= E9;
+					error_out <= '1';
+		end if; 
+	when E2 =>
+		NS <= E3;
+		Address_out<= Word_in ;
+		error_out <= '0';
+	when E3 =>
+		NS <= E4;
+		Data_out <= Word_in;
+		error_out <= '0';
+	when E4 =>
+		if (Word_in=x"E7") then NS <= E0;
+					Address_out<= x"00" ;
+					Data_out <= x"00" ;
+					error_out <= '0';
+		else 			NS <= E9;
+					error_out <= '1'; 
+		end if;
+	when E5 =>
+		NS <= E6;
+		Address_out<= Word_in ;
+		error_out <= '0';
+	when E6 =>
+		NS <= E7;
+		Data_out <= Word_in ;
+		error_out <= '0';
+	when E7 =>
+		NS <= E8;
+		Data_out <= Word_in ;
+		error_out <= '0';
+	when E8 =>
+		if (Word_in=x"E7") then NS <= E0;
+					Address_out<= x"00" ;
+					Data_out <= x"00" ;
+					error_out <= '0';
+		else 			NS <= E9; 
+					error_out <= '1'; 
+		end if;
+	when E9 => --error state
+		if (Word_in=x"E7") then NS <= E0;
+					Address_out<= x"00" ;
+					Data_out <= x"00" ;
+					error_out <= '0';
+		else 			NS <= E9; 
+					error_out <= '1'; 
+		end if;
+      end case;
+    end if;
+  end process;
+
+-- Process (2): State update (sequential)
+  process(ck)
+  begin
+    if (ck='1' and not ck'stable) then
+      CS <= NS;
+    end if;
+  end process;
+
+end src;

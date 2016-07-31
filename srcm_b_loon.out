@@ -1,0 +1,97 @@
+
+                   @@@@@@                          @@@    @@@
+                     @@                             @@     @ 
+                     @@                             @@@    @ 
+                     @@           @@@       @@@     @ @@   @ 
+                     @@         @@   @@   @@   @@   @ @@   @ 
+                     @@        @@     @@ @@     @@  @  @@  @ 
+                     @@        @@     @@ @@     @@  @   @@ @ 
+                     @@        @@     @@ @@     @@  @   @@ @ 
+                     @@      @ @@     @@ @@     @@  @    @@@ 
+                     @@     @   @@   @@   @@   @@   @     @@ 
+                   @@@@@@@@@@     @@@       @@@    @@@    @@ 
+
+                           Local optimization on Nets
+
+             Alliance CAD System 5.0 20090901, loon 5.0 [2003/12/07]
+             Copyright (c) 2000-2015,                 ASIM/LIP6/UPMC
+             Author(s):                              François Donnet
+             E-mail        :             alliance-users@asim.lip6.fr
+
+	MBK_IN_LO	: vst
+	MBK_OUT_LO	: vst
+	MBK_TARGET_LIB	: /usr/lib64/alliance/cells/sxlib
+
+Reading parameter file 'paramfile.lax'...
+50% area - 50% delay optimization
+Reading file 'srcm_b.vst'...
+Controlling file 'paramfile.lax'...
+Reading lib '/usr/lib64/alliance/cells/sxlib'...
+Capacitances on file 'srcm_b.vst'...
+Delays on file 'srcm_b.vst'...3532 ps
+Area on file 'srcm_b.vst'...152250 lamda² (with over-cell routing)
+Details...
+	no2_x1: 23 (15%)
+	inv_x2: 18 (8%)
+	a2_x2: 10 (8%)
+	no3_x1: 8 (6%)
+	o2_x2: 8 (6%)
+	na2_x1: 6 (3%)
+	na3_x1: 5 (4%)
+	no4_x1: 5 (4%)
+	sff1_x4: 4 (11%)
+	o3_x2: 3 (2%)
+	nxr2_x1: 3 (4%)
+	na4_x1: 3 (2%)
+	oa2a22_x2: 2 (2%)
+	oa22_x2: 2 (1%)
+	a4_x2: 2 (2%)
+	nao22_x1: 2 (1%)
+	noa2ao222_x1: 2 (2%)
+	nao2o22_x1: 1 (1%)
+	oa2ao222_x2: 1 (1%)
+	an12_x1: 1 (0%)
+	on12_x1: 1 (0%)
+	a3_x2: 1 (0%)
+	ao2o22_x2: 1 (1%)
+	noa2a22_x1: 1 (1%)
+	Total: 113
+Worst RC on file 'srcm_b.vst'...416 ps
+Inserting buffers on critical path for file 'srcm_b_l.vst'...3 buffers inserted -> 3312 ps
+Improving RC on critical path for file 'srcm_b_l.vst'...3266 ps
+Improving all RC for file 'srcm_b_l.vst'...
+Worst RC on file 'srcm_b_l.vst'...416 ps
+Area on file 'srcm_b_l.vst'...155750 lamda² (with over-cell routing)
+Details...
+	no2_x1: 23 (14%)
+	inv_x2: 17 (8%)
+	a2_x2: 10 (8%)
+	no3_x1: 8 (6%)
+	o2_x2: 8 (6%)
+	na2_x1: 6 (3%)
+	na3_x1: 5 (4%)
+	no4_x1: 5 (4%)
+	sff1_x4: 4 (11%)
+	buf_x2: 3 (1%)
+	o3_x2: 3 (2%)
+	nxr2_x1: 3 (4%)
+	na4_x1: 3 (2%)
+	oa2a22_x2: 2 (2%)
+	oa22_x2: 2 (1%)
+	a4_x2: 2 (2%)
+	nao22_x1: 2 (1%)
+	noa2ao222_x1: 2 (2%)
+	nao2o22_x1: 1 (1%)
+	oa2ao222_x4: 1 (1%)
+	an12_x1: 1 (0%)
+	on12_x1: 1 (0%)
+	inv_x4: 1 (0%)
+	a3_x2: 1 (0%)
+	ao2o22_x2: 1 (1%)
+	noa2a22_x1: 1 (1%)
+	Total: 116
+Critical path (no warranty)...3266 ps from 'src_cs 3' to 'error_out'
+Saving file 'srcm_b_l.vst'...
+Saving critical path in xsch color file 'srcm_b_l.xsc'...
+End of loon...
+

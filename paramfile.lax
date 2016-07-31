@@ -1,0 +1,27 @@
+## Set the optimization mode
+#M{2}
+
+## Set the optimization level
+#L{2}
+
+## External output capacitance (in fF)
+#C{
+address_out(0) : 100;
+address_out(1) : 100;
+address_out(2) : 100;
+address_out(3) : 100;
+address_out(4) : 100;
+address_out(5) : 100;
+address_out(6) : 100;
+address_out(7) : 100;
+data_out(0) : 100;
+data_out(1) : 100;
+data_out(2) : 100;
+data_out(3) : 100;
+data_out(4) : 100;
+data_out(5) : 100;
+data_out(6) : 100;
+data_out(7) : 100;
+error_out : 100;
+}
+

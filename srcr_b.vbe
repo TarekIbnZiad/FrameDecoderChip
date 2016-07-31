@@ -1,0 +1,168 @@
+-- VHDL data flow description generated from `srcr_b`
+--		date : Wed May 27 18:59:38 2015
+
+
+-- Entity Declaration
+
+ENTITY srcr_b IS
+  PORT (
+  ck : in BIT;	-- ck
+  vdd : in BIT;	-- vdd
+  vss : in BIT;	-- vss
+  word_in : in bit_vector(7 DOWNTO 0) ;	-- word_in
+  reset : in BIT;	-- reset
+  address_out : out bit_vector(7 DOWNTO 0) ;	-- address_out
+  data_out : out bit_vector(7 DOWNTO 0) ;	-- data_out
+  error_out : out BIT	-- error_out
+  );
+END srcr_b;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF srcr_b IS
+  SIGNAL src_cs : REG_VECTOR(3 DOWNTO 0) REGISTER;	-- src_cs
+  SIGNAL aux0 : BIT;		-- aux0
+  SIGNAL aux1 : BIT;		-- aux1
+  SIGNAL aux4 : BIT;		-- aux4
+  SIGNAL aux8 : BIT;		-- aux8
+  SIGNAL aux9 : BIT;		-- aux9
+  SIGNAL aux13 : BIT;		-- aux13
+  SIGNAL aux14 : BIT;		-- aux14
+  SIGNAL aux16 : BIT;		-- aux16
+  SIGNAL aux17 : BIT;		-- aux17
+  SIGNAL aux18 : BIT;		-- aux18
+  SIGNAL aux19 : BIT;		-- aux19
+  SIGNAL aux24 : BIT;		-- aux24
+  SIGNAL aux25 : BIT;		-- aux25
+  SIGNAL aux26 : BIT;		-- aux26
+  SIGNAL aux27 : BIT;		-- aux27
+  SIGNAL aux28 : BIT;		-- aux28
+  SIGNAL aux30 : BIT;		-- aux30
+  SIGNAL aux31 : BIT;		-- aux31
+  SIGNAL aux32 : BIT;		-- aux32
+  SIGNAL aux34 : BIT;		-- aux34
+  SIGNAL aux35 : BIT;		-- aux35
+  SIGNAL aux37 : BIT;		-- aux37
+  SIGNAL aux38 : BIT;		-- aux38
+  SIGNAL aux41 : BIT;		-- aux41
+  SIGNAL aux42 : BIT;		-- aux42
+  SIGNAL aux45 : BIT;		-- aux45
+  SIGNAL aux46 : BIT;		-- aux46
+  SIGNAL aux47 : BIT;		-- aux47
+  SIGNAL aux48 : BIT;		-- aux48
+  SIGNAL aux50 : BIT;		-- aux50
+  SIGNAL aux54 : BIT;		-- aux54
+
+BEGIN
+  aux54 <= (NOT(word_in(3)) AND (NOT(word_in(4)) AND (NOT(
+word_in(1)) AND (NOT(word_in(2)) AND NOT(word_in(6))))));
+  aux50 <= (word_in(1) AND (word_in(2) AND word_in(6)));
+  aux48 <= (src_cs(3) AND aux47);
+  aux47 <= (NOT(reset) AND src_cs(1));
+  aux46 <= (NOT(src_cs(3)) AND NOT(reset));
+  aux45 <= ((aux14 AND NOT(src_cs(3))) OR (word_in(5) OR (
+NOT(src_cs(1)) OR (((word_in(3) OR word_in(4)) OR 
+word_in(1)) OR word_in(2)))));
+  aux42 <= (NOT(word_in(5)) OR word_in(3));
+  aux41 <= (aux8 OR ((aux19 AND NOT(reset)) AND NOT(
+src_cs(1))));
+  aux38 <= (NOT(aux4) AND NOT(src_cs(3)));
+  aux37 <= ((aux19 AND NOT(aux13)) AND NOT(src_cs(3)));
+  aux35 <= (NOT(word_in(0)) AND src_cs(0));
+  aux34 <= ((aux32 AND NOT(reset)) AND src_cs(1));
+  aux32 <= (aux25 AND src_cs(3));
+  aux31 <= (aux25 AND word_in(7));
+  aux30 <= (aux27 AND (aux28 AND NOT(reset)));
+  aux28 <= (aux25 AND NOT(src_cs(3)));
+  aux27 <= (NOT(src_cs(2)) OR NOT(src_cs(1)));
+  aux26 <= (word_in(0) AND aux25);
+  aux25 <= (NOT(src_cs(0)) OR src_cs(2));
+  aux24 <= (((((aux14 OR src_cs(3)) OR NOT(word_in(5))) OR 
+NOT(src_cs(1))) OR NOT(word_in(3))) AND word_in(4));
+  aux19 <= (src_cs(0) OR NOT(src_cs(2)));
+  aux18 <= (src_cs(0) AND aux0);
+  aux17 <= (NOT(word_in(0)) OR NOT(word_in(7)));
+  aux16 <= (NOT(word_in(1)) OR NOT(word_in(2)));
+  aux14 <= (aux13 OR src_cs(2));
+  aux13 <= (word_in(0) OR word_in(7));
+  aux9 <= (aux8 OR ((aux1 AND NOT(reset)) AND NOT(src_cs(1)
+)));
+  aux8 <= ((((NOT(src_cs(2)) OR NOT(src_cs(3))) AND aux4) 
+AND NOT(reset)) AND src_cs(1));
+  aux4 <= (src_cs(0) OR src_cs(2));
+  aux1 <= (src_cs(0) OR aux0);
+  aux0 <= (NOT(src_cs(2)) AND src_cs(3));
+  label0 : BLOCK ((ck AND NOT((ck'STABLE))) = '1')
+  BEGIN
+    src_cs (0) <= GUARDED ((aux38 AND src_cs(1)) OR reset OR (((aux37 AND 
+word_in(5) AND src_cs(1) AND word_in(3) AND word_in(4)) OR 
+(((NOT(aux17) AND src_cs(2) AND NOT(src_cs(3)) AND
+ word_in(5) AND src_cs(1)) OR (aux1 AND NOT(aux17)
+ AND word_in(5) AND NOT(src_cs(1)))) AND NOT(
+word_in(3)) AND NOT(word_in(4)))) AND aux50) OR (((aux37 
+AND NOT(word_in(5)) AND src_cs(1)) OR (aux35 AND 
+word_in(7) AND NOT(src_cs(2)) AND src_cs(3) AND NOT(
+word_in(5)))) AND aux54));
+  END BLOCK label0;
+  label1 : BLOCK ((ck AND NOT((ck'STABLE))) = '1')
+  BEGIN
+    src_cs (1) <= GUARDED (src_cs(0) OR reset OR NOT(aux27) OR (aux0 AND 
+NOT(src_cs(1))));
+  END BLOCK label1;
+  label2 : BLOCK ((ck AND NOT((ck'STABLE))) = '1')
+  BEGIN
+    src_cs (2) <= GUARDED (((aux24 OR ((((src_cs(0) OR src_cs(3)) AND 
+src_cs(1)) OR aux17 OR aux18 OR aux38 OR aux42) AND NOT(
+word_in(4))) OR aux16) AND aux41 AND word_in(6)) OR (((
+aux17 AND src_cs(3)) OR aux45) AND aux41 AND NOT(
+word_in(6))));
+  END BLOCK label2;
+  label3 : BLOCK ((ck AND NOT((ck'STABLE))) = '1')
+  BEGIN
+    src_cs (3) <= GUARDED ((src_cs(2) AND NOT(src_cs(3)) AND NOT(reset) AND
+ NOT(src_cs(1))) OR (aux35 AND NOT(word_in(7)) AND
+ NOT(src_cs(3)) AND word_in(5) AND NOT(reset) AND 
+src_cs(1) AND word_in(3) AND word_in(4) AND aux50) OR (
+src_cs(0) AND word_in(7) AND NOT(src_cs(2)) AND src_cs(3) 
+AND NOT(word_in(5)) AND NOT(reset) AND aux54));
+  END BLOCK label3;
+
+error_out <= (((aux24 OR ((((aux19 OR src_cs(3)) AND src_cs(1)
+) OR aux18 OR aux17 OR aux42) AND NOT(word_in(4)))
+ OR aux16) AND aux9 AND word_in(6)) OR (((NOT(
+word_in(7)) AND src_cs(3)) OR aux45) AND aux9 AND NOT(
+word_in(6))));
+
+data_out (0) <= (aux27 AND aux26 AND aux46);
+
+data_out (1) <= (aux30 AND word_in(1));
+
+data_out (2) <= (aux30 AND word_in(2));
+
+data_out (3) <= (aux30 AND word_in(3));
+
+data_out (4) <= (aux30 AND word_in(4));
+
+data_out (5) <= (aux27 AND aux28 AND word_in(5) AND NOT(reset));
+
+data_out (6) <= (aux30 AND word_in(6));
+
+data_out (7) <= (aux27 AND aux31 AND aux46);
+
+address_out (0) <= (aux26 AND aux48);
+
+address_out (1) <= (aux34 AND word_in(1));
+
+address_out (2) <= (aux34 AND word_in(2));
+
+address_out (3) <= (aux34 AND word_in(3));
+
+address_out (4) <= (aux34 AND word_in(4));
+
+address_out (5) <= (aux32 AND word_in(5) AND aux47);
+
+address_out (6) <= (aux34 AND word_in(6));
+
+address_out (7) <= (aux31 AND aux48);
+END;

@@ -1,0 +1,17 @@
+make
+
+xfsm -l src.fsm &
+
+xpat -l srco.pat
+
+xsch -I vst -l srco_b_l.vst
+
+graal -l srco_layout &
+
+graal -l srco_layout &
+
+druc srco_layout &
+
+graal -l srco_chip &
+
+dreal -l srco_chip

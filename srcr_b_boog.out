@@ -1,0 +1,65 @@
+
+                  @@@@@@@                             @@@@ @  
+                    @@   @@                         @@    @@  
+                    @@    @@                       @@      @  
+                    @@    @@     @@@       @@@    @@          
+                    @@   @@    @@   @@   @@   @@  @@          
+                    @@@@@@    @@     @@ @@     @@ @@     @@@@@
+                    @@    @@  @@     @@ @@     @@ @@     @ @@ 
+                    @@     @@ @@     @@ @@     @@ @@    @  @@ 
+                    @@     @@ @@     @@ @@     @@  @@      @@ 
+                    @@    @@   @@   @@   @@   @@    @@    @@  
+                  @@@@@@@@       @@@       @@@        @@@@    
+
+                         Binding and Optimizing On Gates
+
+             Alliance CAD System 5.0 20090901, boog 5.0 [2003/01/09]
+             Copyright (c) 2000-2015,                 ASIM/LIP6/UPMC
+             Author(s):                              François Donnet
+             E-mail        :             alliance-users@asim.lip6.fr
+
+        MBK_VDD        : vdd
+        MBK_VSS        : vss
+        MBK_IN_LO      : vst
+        MBK_OUT_LO     : vst
+        MBK_WORK_LIB   : .
+        MBK_TARGET_LIB : /usr/lib64/alliance/cells/sxlib
+
+Reading parameter file 'paramfile.lax'...
+50% area - 50% delay optimization
+Reading file 'srcr_b.vbe'...
+Controlling file 'paramfile.lax'...
+Controlling file 'srcr_b.vbe'...
+Reading lib '/usr/lib64/alliance/cells/sxlib'...
+Controlling lib '/usr/lib64/alliance/cells/sxlib'...
+Preparing file 'srcr_b.vbe'...
+Capacitances on file 'srcr_b.vbe'...
+Unflattening file 'srcr_b.vbe'...
+Mapping file 'srcr_b.vbe'...
+Saving file 'srcr_b.vst'...
+Quick estimated critical path (no warranty)...2415 ps from 'src_cs 3' to 'src_cs 0'
+Quick estimated area (with over-cell routing)...159000 lambda²
+Details...
+	no2_x1: 23
+	inv_x2: 16
+	o2_x2: 15
+	a2_x2: 8
+	na2_x1: 7
+	o3_x2: 7
+	no3_x1: 5
+	na4_x1: 5
+	on12_x1: 5
+	no4_x1: 4
+	ao22_x2: 4
+	na3_x1: 4
+	sff1_x4: 4
+	oa2ao222_x2: 3
+	oa22_x2: 3
+	noa22_x1: 3
+	a4_x2: 2
+	an12_x1: 1
+	a3_x2: 1
+	Total: 120
+Saving critical path in xsch color file 'srcr_b.xsc'...
+End of boog...
+

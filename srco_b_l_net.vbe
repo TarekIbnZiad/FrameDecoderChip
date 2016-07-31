@@ -1,0 +1,220 @@
+-- VHDL data flow description generated from `srco_b_l_net`
+--		date : Wed May 27 19:40:31 2015
+
+
+-- Entity Declaration
+
+ENTITY srco_b_l_net IS
+  PORT (
+  error_out : out BIT;	-- error_out
+  data_out : out bit_vector(7 DOWNTO 0) ;	-- data_out
+  address_out : out bit_vector(7 DOWNTO 0) ;	-- address_out
+  reset : in BIT;	-- reset
+  word_in : in bit_vector(7 DOWNTO 0) ;	-- word_in
+  vss : in BIT;	-- vss
+  vdd : in BIT;	-- vdd
+  ck : in BIT	-- ck
+  );
+END srco_b_l_net;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF srco_b_l_net IS
+  SIGNAL src_cs : REG_VECTOR(9 DOWNTO 0) REGISTER;	-- src_cs
+  SIGNAL not_aux43 : BIT;		-- not_aux43
+  SIGNAL not_aux35 : BIT;		-- not_aux35
+  SIGNAL not_aux42 : BIT;		-- not_aux42
+  SIGNAL not_aux41 : BIT;		-- not_aux41
+  SIGNAL not_aux34 : BIT;		-- not_aux34
+  SIGNAL not_aux44 : BIT;		-- not_aux44
+  SIGNAL not_src_cs : BIT_VECTOR(7 DOWNTO 2);	-- not_src_cs
+  SIGNAL a4_x2_sig : BIT;		-- a4_x2_sig
+  SIGNAL inv_x2_sig : BIT;		-- inv_x2_sig
+  SIGNAL not_aux40 : BIT;		-- not_aux40
+  SIGNAL not_aux25 : BIT;		-- not_aux25
+  SIGNAL not_aux12 : BIT;		-- not_aux12
+  SIGNAL not_word_in : BIT_VECTOR(7 DOWNTO 0);	-- not_word_in
+  SIGNAL not_reset : BIT;		-- not_reset
+  SIGNAL on12_x1_sig : BIT;		-- on12_x1_sig
+  SIGNAL o2_x2_sig : BIT;		-- o2_x2_sig
+  SIGNAL no2_x1_sig : BIT;		-- no2_x1_sig
+  SIGNAL na3_x1_2_sig : BIT;		-- na3_x1_2_sig
+  SIGNAL na3_x1_sig : BIT;		-- na3_x1_sig
+  SIGNAL na3_x1_3_sig : BIT;		-- na3_x1_3_sig
+  SIGNAL na2_x1_sig : BIT;		-- na2_x1_sig
+  SIGNAL no2_x1_2_sig : BIT;		-- no2_x1_2_sig
+  SIGNAL na2_x1_2_sig : BIT;		-- na2_x1_2_sig
+  SIGNAL a4_x2_2_sig : BIT;		-- a4_x2_2_sig
+  SIGNAL na4_x1_sig : BIT;		-- na4_x1_sig
+  SIGNAL no3_x1_sig : BIT;		-- no3_x1_sig
+  SIGNAL o2_x2_2_sig : BIT;		-- o2_x2_2_sig
+  SIGNAL aux32 : BIT;		-- aux32
+  SIGNAL aux21 : BIT;		-- aux21
+  SIGNAL aux14 : BIT;		-- aux14
+  SIGNAL aux2 : BIT;		-- aux2
+  SIGNAL no2_x1_3_sig : BIT;		-- no2_x1_3_sig
+  SIGNAL no2_x1_4_sig : BIT;		-- no2_x1_4_sig
+  SIGNAL no2_x1_5_sig : BIT;		-- no2_x1_5_sig
+  SIGNAL no2_x1_6_sig : BIT;		-- no2_x1_6_sig
+  SIGNAL no2_x1_7_sig : BIT;		-- no2_x1_7_sig
+  SIGNAL no2_x1_8_sig : BIT;		-- no2_x1_8_sig
+  SIGNAL no2_x1_9_sig : BIT;		-- no2_x1_9_sig
+  SIGNAL na4_x1_2_sig : BIT;		-- na4_x1_2_sig
+  SIGNAL no2_x1_10_sig : BIT;		-- no2_x1_10_sig
+  SIGNAL no4_x1_sig : BIT;		-- no4_x1_sig
+  SIGNAL no2_x1_11_sig : BIT;		-- no2_x1_11_sig
+  SIGNAL na4_x1_3_sig : BIT;		-- na4_x1_3_sig
+  SIGNAL o2_x2_3_sig : BIT;		-- o2_x2_3_sig
+  SIGNAL no3_x1_2_sig : BIT;		-- no3_x1_2_sig
+  SIGNAL nao22_x1_sig : BIT;		-- nao22_x1_sig
+  SIGNAL mbk_buf_aux32 : BIT;		-- mbk_buf_aux32
+
+BEGIN
+  mbk_buf_aux32 <= aux32;
+  nao22_x1_sig <= NOT(((no3_x1_2_sig OR o2_x2_3_sig) AND 
+no2_x1_11_sig));
+  no3_x1_2_sig <= NOT(((src_cs(0) OR src_cs(5)) OR src_cs(1)));
+  o2_x2_3_sig <= (na4_x1_3_sig OR aux14);
+  na4_x1_3_sig <= NOT((((word_in(7) AND word_in(0)) AND word_in(6))
+ AND not_word_in(3)));
+  no2_x1_11_sig <= NOT((reset OR no4_x1_sig));
+  no4_x1_sig <= NOT((((aux21 OR word_in(7)) OR not_aux44) OR 
+word_in(6)));
+  no2_x1_10_sig <= NOT((not_aux44 OR na4_x1_2_sig));
+  na4_x1_2_sig <= NOT((((word_in(6) AND not_word_in(7)) AND 
+not_aux25) AND not_reset));
+  no2_x1_9_sig <= NOT((word_in(0) OR not_aux40));
+  no2_x1_8_sig <= NOT((reset OR not_src_cs(7)));
+  no2_x1_7_sig <= NOT((reset OR not_src_cs(6)));
+  no2_x1_6_sig <= NOT((not_word_in(0) OR not_aux40));
+  no2_x1_5_sig <= NOT((reset OR not_src_cs(4)));
+  no2_x1_4_sig <= NOT((reset OR not_src_cs(3)));
+  no2_x1_3_sig <= NOT((reset OR not_src_cs(2)));
+  aux2 <= NOT((((not_word_in(4) AND not_word_in(2)) AND 
+not_word_in(5)) AND not_word_in(1)));
+  aux14 <= NOT(((not_word_in(4) AND word_in(1)) AND 
+not_aux12));
+  aux21 <= (NOT(not_word_in(3)) OR aux2);
+  aux32 <= NOT(((o2_x2_2_sig OR a4_x2_2_sig) AND na3_x1_sig)
+);
+  o2_x2_2_sig <= (reset OR no3_x1_sig);
+  no3_x1_sig <= NOT(((aux14 OR src_cs(8)) OR na4_x1_sig));
+  na4_x1_sig <= NOT((((word_in(7) AND word_in(0)) AND word_in(6))
+ AND not_word_in(3)));
+  a4_x2_2_sig <= (((na2_x1_2_sig AND not_src_cs(5)) AND 
+no2_x1_2_sig) AND na2_x1_sig);
+  na2_x1_2_sig <= NOT((src_cs(8) AND aux2));
+  no2_x1_2_sig <= NOT((src_cs(1) OR src_cs(0)));
+  na2_x1_sig <= NOT((na3_x1_3_sig AND src_cs(8)));
+  na3_x1_3_sig <= NOT(((not_word_in(3) AND word_in(7)) AND 
+not_word_in(6)));
+  na3_x1_sig <= NOT(((not_reset AND src_cs(9)) AND na3_x1_2_sig));
+  na3_x1_2_sig <= NOT(((o2_x2_sig AND no2_x1_sig) AND on12_x1_sig));
+  no2_x1_sig <= NOT((word_in(0) OR word_in(7)));
+  o2_x2_sig <= (not_word_in(6) OR not_aux25);
+  on12_x1_sig <= (NOT(aux21) OR word_in(6));
+  not_reset <= NOT(reset);
+  not_word_in (0) <= NOT(word_in(0));
+  not_word_in (1) <= NOT(word_in(1));
+  not_word_in (2) <= NOT(word_in(2));
+  not_word_in (3) <= NOT(word_in(3));
+  not_word_in (4) <= NOT(word_in(4));
+  not_word_in (5) <= NOT(word_in(5));
+  not_word_in (6) <= NOT(word_in(6));
+  not_word_in (7) <= NOT(word_in(7));
+  not_aux12 <= (word_in(2) AND word_in(5));
+  not_aux25 <= (((not_aux12 AND word_in(3)) AND word_in(4)) AND 
+word_in(1));
+  not_aux40 <= NOT(((inv_x2_sig AND src_cs(8)) AND a4_x2_sig));
+  inv_x2_sig <= NOT(aux2);
+  a4_x2_sig <= (((not_reset AND not_word_in(3)) AND word_in(7)) 
+AND not_word_in(6));
+  not_src_cs (2) <= NOT(src_cs(2));
+  not_src_cs (3) <= NOT(src_cs(3));
+  not_src_cs (4) <= NOT(src_cs(4));
+  not_src_cs (5) <= NOT(src_cs(5));
+  not_src_cs (6) <= NOT(src_cs(6));
+  not_src_cs (7) <= NOT(src_cs(7));
+  not_aux44 <= (NOT(src_cs(9)) OR word_in(0));
+  not_aux34 <= ((not_src_cs(6) AND not_src_cs(2)) AND 
+not_src_cs(3));
+  not_aux41 <= (reset OR not_word_in(0));
+  not_aux42 <= (reset OR not_aux34);
+  not_aux35 <= (not_src_cs(7) AND not_src_cs(4));
+  not_aux43 <= (reset OR not_aux35);
+  label0 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (0) <= GUARDED mbk_buf_aux32;
+  END BLOCK label0;
+  label1 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (1) <= GUARDED no2_x1_3_sig;
+  END BLOCK label1;
+  label2 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (2) <= GUARDED no2_x1_4_sig;
+  END BLOCK label2;
+  label3 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (3) <= GUARDED no2_x1_5_sig;
+  END BLOCK label3;
+  label4 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (4) <= GUARDED no2_x1_6_sig;
+  END BLOCK label4;
+  label5 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (5) <= GUARDED no2_x1_7_sig;
+  END BLOCK label5;
+  label6 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (6) <= GUARDED no2_x1_8_sig;
+  END BLOCK label6;
+  label7 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (7) <= GUARDED no2_x1_9_sig;
+  END BLOCK label7;
+  label8 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (8) <= GUARDED no2_x1_10_sig;
+  END BLOCK label8;
+  label9 : BLOCK (NOT(((ck AND NOT((ck'STABLE))) XOR '1')) = '1')
+  BEGIN
+    src_cs (9) <= GUARDED nao22_x1_sig;
+  END BLOCK label9;
+
+error_out <= aux32;
+
+data_out (0) <= NOT((not_aux41 OR not_aux34));
+
+data_out (1) <= NOT((not_aux42 OR not_word_in(1)));
+
+data_out (2) <= NOT((not_word_in(2) OR not_aux42));
+
+data_out (3) <= NOT(((not_word_in(3) OR not_aux34) OR reset));
+
+data_out (4) <= NOT((not_word_in(4) OR not_aux42));
+
+data_out (5) <= NOT((not_word_in(5) OR not_aux42));
+
+data_out (6) <= NOT(((not_word_in(6) OR reset) OR not_aux34));
+
+data_out (7) <= NOT(((not_word_in(7) OR reset) OR not_aux34));
+
+address_out (0) <= NOT((not_aux41 OR not_aux35));
+
+address_out (1) <= NOT((not_aux43 OR not_word_in(1)));
+
+address_out (2) <= NOT((not_word_in(2) OR not_aux43));
+
+address_out (3) <= NOT((not_word_in(3) OR not_aux43));
+
+address_out (4) <= NOT((not_word_in(4) OR not_aux43));
+
+address_out (5) <= NOT((not_word_in(5) OR not_aux43));
+
+address_out (6) <= NOT((not_aux43 OR not_word_in(6)));
+
+address_out (7) <= NOT((not_aux43 OR not_word_in(7)));
+END;

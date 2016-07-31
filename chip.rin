@@ -1,0 +1,16 @@
+west( #from bottom to top
+p_word_in0 p_word_in1 p_word_in2 p_vdde p_word_in3  p_word_in4 p_word_in5 )
+
+north( #from left to right
+p_word_in6 p_word_in7 p_data_out0 p_data_out1 p_vddi p_data_out2 p_data_out3 p_data_out4 p_data_out5)
+
+east( #from bottom to top
+p_address_out1 p_address_out0 p_ck p_vsse p_reset p_data_out7 p_data_out6 )
+
+south( #from left to right
+p_error p_address_out7 p_address_out6 p_vssick p_address_out5 p_address_out4 p_address_out3 p_address_out2)
+
+width( #vdd and vss ring track width
+vss 100 vdd 100)
+
+
